@@ -1,0 +1,8 @@
+com\mycompany\testesoftware_sistemabancario\model\entity\Conta.class
+com\mycompany\testesoftware_sistemabancario\model\entity\Cliente.class
+com\mycompany\testesoftware_sistemabancario\model\entity\Util.class
+com\mycompany\testesoftware_sistemabancario\model\entity\Cadastro.class
+com\mycompany\testesoftware_sistemabancario\model\entity\package_info.class
+com\mycompany\testesoftware_sistemabancario\model\entity\Movimentacao.class
+com\mycompany\testesoftware_sistemabancario\model\entity\Agencia.class
+com\mycompany\testesoftware_sistemabancario\model\entity\Banco.class

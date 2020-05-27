@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.mycompany.testesoftware_sistemabancario.model.entity.ContaTest" time="0.114" tests="9" errors="0" skipped="0" failures="0">
+  <properties/>
+  <testcase name="testR01NumeroNulo" classname="com.mycompany.testesoftware_sistemabancario.model.entity.ContaTest" time="0.016"/>
+  <testcase name="testR03SetLimiteContaEspecial" classname="com.mycompany.testesoftware_sistemabancario.model.entity.ContaTest" time="0"/>
+  <testcase name="testR03SetLimiteContaNaoEspecial" classname="com.mycompany.testesoftware_sistemabancario.model.entity.ContaTest" time="0"/>
+  <testcase name="testR01NumeroInvalidoExcecao" classname="com.mycompany.testesoftware_sistemabancario.model.entity.ContaTest" time="0"/>
+  <testcase name="testR03LimiteContaNaoEspecialNaoAlterado" classname="com.mycompany.testesoftware_sistemabancario.model.entity.ContaTest" time="0"/>
+  <testcase name="testR01NumeroInvalidoNaoArmazena" classname="com.mycompany.testesoftware_sistemabancario.model.entity.ContaTest" time="0"/>
+  <testcase name="testR04HistoricoNotNull" classname="com.mycompany.testesoftware_sistemabancario.model.entity.ContaTest" time="0"/>
+  <testcase name="testR02InstanciaPadraoPoupanca" classname="com.mycompany.testesoftware_sistemabancario.model.entity.ContaTest" time="0"/>
+  <testcase name="testR01SetNumeroValido" classname="com.mycompany.testesoftware_sistemabancario.model.entity.ContaTest" time="0"/>
+</testsuite>
