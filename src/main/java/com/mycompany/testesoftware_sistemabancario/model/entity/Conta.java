@@ -63,6 +63,7 @@ public class Conta extends Cadastro {
      * de contas "não especiais" não pode ser maior que zero (R03).
      */
     //Inicializando vazia a lista de movimanetações.
+    /* Código prof vídeo-aula#1. */
     private List<Movimentacao> movimentacoes = new ArrayList<>();
 
     /**
@@ -111,9 +112,11 @@ public class Conta extends Cadastro {
      * @param numero the numero to set
      */
     public void setNumero(String numero) {
+        /*vídeo-aula#1. Minha implementação*/
         //Aqui verifica se a variável numero é nula ou não
         Objects.requireNonNull(numero," O parametro de número não poder ser nulo!");
         
+        /* Código prof vídeo-aula#1. */
         if (!numero.matches("\\d{5}-\\d")) {
             throw new IllegalArgumentException(
                     "Número inválido!. Deve estar no formato: 00000-0");
@@ -182,6 +185,7 @@ public class Conta extends Cadastro {
      * @param limite the limite to set
      */
     public void setLimite(double limite) {
+        /* Código prof vídeo-aula#1. */
         if(!especial && limite > 0){
             throw new IllegalStateException("Somente contas especiais podem ter limite");
         }
@@ -220,11 +224,12 @@ public class Conta extends Cadastro {
      * mais o {@link #limite}.
      *
      * @return
+     * Vídeo-aula #2: Evitando problemas de testes intermitentes com números double no JUnit 5.
+     * Realize a implementação feita na segunda parte do vídeo do sistema bancário,
      */
     public double getSaldoTotal() {
-        /* TODO: Você precisa implementar este método. 
-        A linha abaixo deve ser substituída pelo seu código */
-        return 0.0d;
+        /* Código prof vídeo-aula#2. */
+        return saldo + limite;
     }
 
     /**
@@ -266,5 +271,35 @@ public class Conta extends Cadastro {
     public void depositoCheque(final double valor) {
         // TODO: Você precisa implementar este método
     }
-
+    
+    /**
+     * Vídeo-aula #2: Evitando problemas de testes intermitentes com números double no JUnit 5;
+     * Realize a implementação feita na segunda parte do vídeo do sistema bancário;
+     * 
+     * Adiciona uma nova movimentação de deposito em dinheiro tanto realizada por
+     * funcionário quanto em um caixa eletrônico que deve ser confirmada automaticamente;
+     * Considera-se que todos os caixas eletrônicos do banco têm capacidade de contas
+     * cédulas.
+     * @param valor valor a ser depositado (deve ser um valor positivo).
+     * 
+     */
+    public void depositoDinheiro(final double valor) {
+        /*Minha implementação, verifica se o valor do deposito é negativo ou igual a zero*/
+        if(valor <= 0){
+            throw new IllegalArgumentException(
+                    "Os valores do deposito não pode ser negativo ou igual a zero! "
+            );
+        }
+        
+        /* Código prof vídeo-aula#2. */
+        Movimentacao movimentacao = new Movimentacao(this);
+        movimentacao.setConfirmada(true);
+        movimentacao.setTipo('C');
+        movimentacao.setValor(valor);
+        saldo += valor;
+        movimentacoes.add(movimentacao);
+        
+        
+    }
+    
 }
