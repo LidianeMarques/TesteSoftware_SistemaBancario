@@ -287,4 +287,22 @@ public class ContaTest {
         assertThrows(IllegalArgumentException.class, () -> instance.depositoDinheiro(deposito));
     }
         
-}
+    /**
+     * Vídeo-aula: Entendendo e aplicando Cobertura de Código em Java: 
+     * Analisando o percentual de código coberto por testes.
+     * Código prof vídeo-aula.
+     */
+    @Test
+    public void testeAddMovimentacao(){
+        final Conta instance = new Conta();
+        Movimentacao mov = new Movimentacao(instance);
+        mov.setConfirmada(true);
+        mov.setTipo('C');
+        final double valorEsperado = 100.50;
+        mov.setValor(valorEsperado);
+        instance.addMovimentacao(mov);
+        assertEquals(valorEsperado, instance.getSaldoTotal());
+        
+    }
+}   
+    

@@ -214,9 +214,16 @@ public class Conta extends Cadastro {
      * da conta caso o tipo da movimentação seja 'D'.
      *
      * @param movimentacao {@link Movimentacao} a ser adicionada
+     * Vídeo-aula: Entendendo e aplicando Cobertura de Código em Java: 
+     * Analisando o percentual de código coberto por testes.
+     * Código prof vídeo-aula.
      */
     public void addMovimentacao(Movimentacao movimentacao) {
-        // TODO: Você precisa implementar este método
+        if(movimentacao.isConfirmada()){
+            if(movimentacao.getTipo() == 'C'){
+                saldo += movimentacao.getValor();
+            }
+        }
     }
 
     /**
