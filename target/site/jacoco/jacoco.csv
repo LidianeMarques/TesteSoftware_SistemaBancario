@@ -1,0 +1,9 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+TesteSoftware_SistemaBancario,com.mycompany.testesoftware_sistemabancario.model.entity,Movimentacao,21,24,0,0,9,11,6,7,6,7
+TesteSoftware_SistemaBancario,com.mycompany.testesoftware_sistemabancario.model.entity,Agencia,24,0,0,0,10,0,7,0,7,0
+TesteSoftware_SistemaBancario,com.mycompany.testesoftware_sistemabancario.model.entity,Banco,31,0,0,0,13,0,9,0,9,0
+TesteSoftware_SistemaBancario,com.mycompany.testesoftware_sistemabancario.model.entity,package_info,3,0,0,0,1,0,1,0,1,0
+TesteSoftware_SistemaBancario,com.mycompany.testesoftware_sistemabancario.model.entity,Conta,42,113,3,9,17,32,14,14,11,11
+TesteSoftware_SistemaBancario,com.mycompany.testesoftware_sistemabancario.model.entity,Cliente,63,0,2,0,18,0,9,0,8,0
+TesteSoftware_SistemaBancario,com.mycompany.testesoftware_sistemabancario.model.entity,Util,55,0,4,0,9,0,4,0,2,0
+TesteSoftware_SistemaBancario,com.mycompany.testesoftware_sistemabancario.model.entity,Cadastro,7,3,0,0,3,1,2,1,2,1

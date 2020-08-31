@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Agencia.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TesteSoftware_SistemaBancario</a> &gt; <a href="index.source.html" class="el_package">com.mycompany.testesoftware_sistemabancario.model.entity</a> &gt; <span class="el_source">Agencia.java</span></div><h1>Agencia.java</h1><pre class="source lang-java linenums">/*
+ *Apresenta um projeto com um conjunto de classes contendo documentação JavaDoc 
+ *detalhando quais requisitos devem ser implementados para as classes e métodos 
+ *disponibilizados.
+ *Os métodos possuem apenas a estrutura, sendo que a implementação deve ser 
+ *desenvolvida pelo aluno, seguindo o processo TDD.
+ *Implementar os requisitos R01 a R04 para a classe Conta. Disponibilizar link 
+ *para novo repositório exclusivo para o projeto no GitHub.
+ */
+
+package com.mycompany.testesoftware_sistemabancario.model.entity;
+
+
+/**
+ *
+ * @author Lidiane
+ */
+<span class="nc" id="L18">public class Agencia extends Cadastro{</span>
+    
+    private long id;
+    
+    /**
+     * (R01)
+     * Banco ao qual a agência pertence.
+     * O banco deve ser fornecido como um parâmetro no construtor,
+     * pois não pode haver agência sem banco.
+     * Um teste deve verificar se, após usar tal construtor para instanciar
+     * a agência, se o atributo banco foi setado (ou seja, se não é nulo). 
+     * 
+     */
+    private Banco banco;
+    
+    /**
+     * Número único da agência bancária para um banco.
+     *
+     * (R02)
+     * O valor é obrigatório, não podendo ser nulo nem vazio. 
+     * 
+     * (R03)
+     * Deve ter exatamente 4 algarismos, seguido de um hífen e mais um dígito verificador.
+     * (o hífen é pra deixar clara a existência de tal dígito). 
+     * Exemplos de números de agência
+     * válidos inclui: 0638-6, 1886-4, 1867-8. 
+     * 
+     * (R04)
+     * Deve ser validado usando o algoritmo do Módulo 11, que está implementado
+     * no método {@link Util#calculaDigitoModulo11(String)}.
+     * Você deve chamar o método como 
+     * String digitoCalculado = Util.calculaDigitoModulo11(numero)
+     * e então verificar se o dígito informado em numero é igual ao 
+     * dígito calculado pelo método e armazenado na variável 
+     * digitoCalculado no exemplo acima.
+     * Uma forma simples de fazer isso é verificar se a String numero termina
+     * com o digitoCalculado, usando o método endsWith da classe String.
+     * Se o numero não terminar com o digitoCalculado, ele é inválido
+     * e uma exceção deve ser lançada para informar isso.
+     * 
+     */
+    
+    private String numero;
+
+    /**
+     * @return the id
+     */
+    @Override
+    public long getId() {
+        // TODO: Você precisa implementar este método
+<span class="nc" id="L68">        return id;</span>
+    }
+
+    /**
+     * @param id the id to set
+     */
+    @Override
+    public void setId(long id) {
+        // TODO: Você precisa implementar este método
+<span class="nc" id="L77">        this.id = id;</span>
+<span class="nc" id="L78">    }</span>
+
+    /**
+     * @return the banco
+     */
+    public Banco getBanco() {
+<span class="nc" id="L84">        return banco;</span>
+    }
+
+    /**
+     * @param banco the banco to set
+     */
+    public void setBanco(Banco banco) {
+<span class="nc" id="L91">        this.banco = banco;</span>
+<span class="nc" id="L92">    }</span>
+
+    /**
+     * @return the numero
+     */
+    public String getNumero() {
+<span class="nc" id="L98">        return numero;</span>
+    }
+
+    /**
+     * Altera o número da agência, verificando se o dígito está correto
+     * utilizando o algoritmo 
+     * &lt;a href=&quot;https://pt.wikipedia.org/wiki/Dígito_verificador#Módulo_11&quot;&gt;modulo 11&lt;/a&gt;.
+     * 
+     * @param numero novo número da agência
+     */
+    public void setNumero(String numero) {
+<span class="nc" id="L109">        this.numero = numero;</span>
+<span class="nc" id="L110">    }</span>
+    
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
