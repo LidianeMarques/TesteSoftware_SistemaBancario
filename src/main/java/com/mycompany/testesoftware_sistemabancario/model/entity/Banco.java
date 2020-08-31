@@ -7,49 +7,40 @@
  *Implementar os requisitos R01 a R04 para a classe Conta. Disponibilizar link 
  *para novo repositório exclusivo para o projeto no GitHub.
  */
-
 package com.mycompany.testesoftware_sistemabancario.model.entity;
 
 /**
  * Representa uma instituição bancária com os seguintes requisitos:
- * 
- * - Ao cadastrar um banco, deve ser criada ao menos uma agência;
- * - Não deve-se excluir um banco se este tiver agências cadastradas.
+ *
+ * - Ao cadastrar um banco, deve ser criada ao menos uma agência; - Não deve-se
+ * excluir um banco se este tiver agências cadastradas.
  */
-
 /**
  *
  * @author Lidiane
  */
+public class Banco implements Cadastro {
 
-
-public class Banco extends Cadastro{
-    
     private long id;
     private String nome;
     private String sigla;
-    
+
     /**
      * Número único do banco.
-     * 
-     * (R01)
-     * Deve ter exatamente 3 algarismos. Senão, uma exceção deve ser 
+     *
+     * (R01) Deve ter exatamente 3 algarismos. Senão, uma exceção deve ser
      * lançada informando o problema.
-     * 
-     * (R02)
-     * O tipo é String para permitir restringir o total de caracteres, mas deve
-     * ser informado um número válido (somente dígitos de 0 a 9). Senão for um
-     * número válido, uma exceção deve ser lançada informando o problema. 
-     * 
-     * 
-     * É um atributo obrigatório, não podendo ser nulo nem vazio. 
-     * Se não for preenchido, uma exceção deve ser lançada informando o problema. 
+     *
+     * (R02) O tipo é String para permitir restringir o total de caracteres, mas
+     * deve ser informado um número válido (somente dígitos de 0 a 9). Senão for
+     * um número válido, uma exceção deve ser lançada informando o problema.
+     *
+     *
+     * É um atributo obrigatório, não podendo ser nulo nem vazio. Se não for
+     * preenchido, uma exceção deve ser lançada informando o problema.
      */
-    
     private String numero;
 
-    
-    
     /**
      * @return the id
      */
@@ -105,8 +96,13 @@ public class Banco extends Cadastro{
      * @param numero the numero to set
      */
     public void setNumero(String numero) {
+
+        if (!numero.matches("\\d{3}")) {
+            throw new IllegalArgumentException(
+                    "Número inválido!. Deve conter 3 digitos");
+        }
         this.numero = numero;
+
     }
-    
-    
+
 }

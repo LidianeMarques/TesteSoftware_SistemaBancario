@@ -14,22 +14,16 @@ package com.mycompany.testesoftware_sistemabancario.model.entity;
  *
  * @author Lidiane
  */
-public class Cadastro {
+public interface Cadastro {
     
-    private long id;
+     /**
+     * @return
+     */
+    long getId();
 
     /**
-     * @return the id
+     * @param id
      */
-    public long getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(long id) {
-        this.id = id;
-    }
+    void setId(long id);
        
 }

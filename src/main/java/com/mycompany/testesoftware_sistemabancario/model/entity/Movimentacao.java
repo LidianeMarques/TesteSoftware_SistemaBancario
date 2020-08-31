@@ -25,7 +25,7 @@ package com.mycompany.testesoftware_sistemabancario.model.entity;
  *
  * @author Lidiane
  */
-public class Movimentacao extends Cadastro {
+public class Movimentacao implements Cadastro {
 
     private long id;
     private String descricao;
@@ -36,136 +36,110 @@ public class Movimentacao extends Cadastro {
     private Conta conta;
 
     /**
-     * (R01) 
-     * Tipo da movimentação deve ser 'C' para crédito (entrada de
-     * dinheiro) ou 'D' para débito (saída de dinheiro).
+     * Tipo da movimentação deve ser 'C' para crédito (entrada de dinheiro) ou
+     * 'D' para débito (saída de dinheiro) (R01).
      */
     private char tipo;
 
     /**
-     * Valor monetário da movimentação.
-     *
-     * (R02)
-     * O valor não deve ser negativo, uma vez que existe o atributo
-     * {@link #tipo}.
-     *
-     * (R03) 
-     * Se o tipo for débito, o valor da movimentação não pode ser superior
-     * ao saldo total da {@link Conta}.
+     * Valor monetário da movimentação. O valor não deve ser negativo, uma vez
+     * que existe o atributo {@link #tipo} (R02). Se o tipo for débito, o valor
+     * da movimentação não pode ser superior ao saldo total da {@link Conta}
+     * (R03).
      */
     private double valor;
 
     /**
-     * Indica se a movimentação foi confirmada e deve ser registrada no saldo da
-     * conta, quando for adicionada à lista de movimentações usando
-     * {@link Conta#addMovimentacao(Movimentacao)}.
+     * Indica se a movimentação foi confirmada, neste caso, devendo ser
+     * registrada no saldo da conta, quando for adicionada à lista de
+     * movimentações usando {@link Conta#addMovimentacao(Movimentacao)}.
      *
-     * (R04)
-     * Movimentacoes devem ser instanciadas como "confirmadas" por
-     * padrão.
+     * <ul>
+     * <li>Movimentacoes devem ser instanciadas como "confirmadas" por padrão
+     * (R04).</li>
+     * <li>
+     * Somente operações como depósito em cheque devem ser registradas
+     * inicialmente como não confirmadas. Após uma operação ser confirmada,
+     * deve-se atualizar o saldo da conta.
+     * <li>
+     * </ul>
      *
-     *
-     * Somente operações como depósito em envelope ou em cheque devem ser
-     * registradas inicialmente como não confirmadas. Após uma operação ser
-     * confirmada, deve-se atualizar o saldo da conta.
-     *
-     * @see Conta#depositoEnvelope(double)
+     * @see Conta#depositoDinheiro(double)
      * @see Conta#depositoCheque(double)
      */
     private boolean confirmada;
 
-    
     /**
-     * Instancia uma movimentação para uma determinada {@link Conta} bancária. (R05)
+     * Instancia uma movimentação para uma determinada {@link Conta} bancária,
+     * onde a conta passada deve ser armazenada no atributo {@link #conta}
+     * (R05).
+     *
      * @param conta a {@link Conta} para vincular a movimentação.
      */
-    public Movimentacao(Conta conta){
-         // TODO: Você precisa implementar este método
-        
-    }
-    
-    /**
-     * @return the id
-     */
-    public long getId() {
-        return id;
+    public Movimentacao(Conta conta) {
+        //R05
+        this.conta = conta;
+
+        //R04_Movimentacoes devem ser instanciadas como "confirmadas" por padrão
+        this.confirmada = true;
+
     }
 
-    /**
-     * @param id the id to set
-     */
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    /**
-     * @return the descricao
-     */
-    public String getDescricao() {
-        return descricao;
-    }
-
-    /**
-     * @param descricao the descricao to set
-     */
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    /**
+    /**R05
      * @return the conta
      */
     public Conta getConta() {
         return conta;
     }
 
-    /**
+    /**R05
      * @param conta the conta to set
      */
     public void setConta(Conta conta) {
         this.conta = conta;
     }
 
-    /**
-     * @return the tipo
-     */
+    @Override
+    public long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public char getTipo() {
         return tipo;
     }
 
-    /**
-     * @param tipo the tipo to set
-     */
     public void setTipo(char tipo) {
         this.tipo = tipo;
     }
 
-    /**
-     * @return the valor
-     */
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
     public double getValor() {
         return valor;
     }
 
-    /**
-     * @param valor the valor to set
-     */
     public void setValor(double valor) {
         this.valor = valor;
     }
 
-    /**
-     * @return the confirmada
-     */
     public boolean isConfirmada() {
         return confirmada;
     }
 
-    /**
-     * @param confirmada the confirmada to set
-     */
     public void setConfirmada(boolean confirmada) {
         this.confirmada = confirmada;
     }
 
+    
 }

@@ -23,7 +23,7 @@ import java.util.Objects;
  *
  * @author Lidiane
  */
-public class Conta extends Cadastro {
+public class Conta implements Cadastro {
 
     private long id;
     private String numero;
@@ -219,9 +219,13 @@ public class Conta extends Cadastro {
      * Código prof vídeo-aula.
      */
     public void addMovimentacao(Movimentacao movimentacao) {
-        if(movimentacao.isConfirmada()){
-            if(movimentacao.getTipo() == 'C'){
+        if (movimentacao.isConfirmada()) {
+            if (movimentacao.getTipo() == 'C') {
                 saldo += movimentacao.getValor();
+            }
+             /*Minha implementação*/
+            if (movimentacao.getTipo() == 'D') {
+                saldo -= movimentacao.getValor();
             }
         }
     }
@@ -256,7 +260,26 @@ public class Conta extends Cadastro {
      * @param valor valor a ser sacado (deve ser um valor positivo)
      */
     public void saque(final double valor) {
-        saldo -= valor;
+        /*Minha implementação, verifica se a conta tem dinheiro*/
+        if ((getSaldoTotal()- valor) < 0) {
+            throw new IllegalArgumentException(
+                    "Não tem dinheiro na conta! "
+            );
+        }
+        /* Código prof vídeo-aula#2. */
+        Movimentacao movimentacao = new Movimentacao(this);
+        movimentacao.setConfirmada(true);
+        movimentacao.setTipo('D');
+        movimentacao.setValor(valor);
+        if(valor <= saldo){
+            saldo -= valor;
+        }else{
+            limite -= ( valor - saldo);
+            saldo = 0;
+        }
+        
+        
+        movimentacoes.add(movimentacao);
     }
 
     /**
@@ -292,12 +315,12 @@ public class Conta extends Cadastro {
      */
     public void depositoDinheiro(final double valor) {
         /*Minha implementação, verifica se o valor do deposito é negativo ou igual a zero*/
-        if(valor <= 0){
+        if (valor <= 0) {
             throw new IllegalArgumentException(
                     "Os valores do deposito não pode ser negativo ou igual a zero! "
             );
         }
-        
+
         /* Código prof vídeo-aula#2. */
         Movimentacao movimentacao = new Movimentacao(this);
         movimentacao.setConfirmada(true);
@@ -305,6 +328,7 @@ public class Conta extends Cadastro {
         movimentacao.setValor(valor);
         saldo += valor;
         movimentacoes.add(movimentacao);
+
         
         
     }
